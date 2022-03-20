@@ -1,0 +1,10 @@
+{
+  "name": "reactNative",
+  "displayName": "reactNative",
+  "LATITUDE": -23.5613496,
+  "LONGITUDE": -46.665249,
+  "APPID_WEATHER": "2cb96b0af2903fb13083efa97c395956",
+  "domain_openstreetmap" : "https://nominatim.openstreetmap.org/",
+  "domain_weather" : "https://api.openweathermap.org/",
+  "domain_google_maps" : "http://maps.google.com/"
+}
