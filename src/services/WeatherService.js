@@ -1,5 +1,5 @@
 import {LATITUDE, LONGITUDE, APPID_WEATHER, domain_weather} from '../../app.json';
-import {fetch} from "react-native/Libraries/Network/fetch";
+
 
 const Primary = (lat = LATITUDE, lon = LONGITUDE) => {
 

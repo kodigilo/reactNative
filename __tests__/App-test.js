@@ -12,6 +12,7 @@ import GoogleMaps from "../src/components/GoogleMaps";
 import Home from "../src/views/Home";
 import {Provider} from 'react-redux'
 import store from '../src/store/'
+import {fetch} from "react-native/Libraries/Network/fetch";
 
 it('teste renderização botão localização', async () => {
     const tree = renderer.create(<Provider store={store}><BotaoLocalizacao/></Provider>).toJSON();

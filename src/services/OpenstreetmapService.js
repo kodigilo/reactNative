@@ -1,5 +1,4 @@
 import {LATITUDE, LONGITUDE,domain_openstreetmap} from '../../app.json';
-import {fetch} from "react-native/Libraries/Network/fetch";
 
 const getEndereco = (lat = LATITUDE, lon = LONGITUDE) => {
     return fetch(
