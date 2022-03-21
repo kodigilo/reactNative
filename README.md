@@ -7,6 +7,12 @@
 
 <img src="screenshot.jpg" width="300" />
 
+## Libs
+
+- react-native
+- redux
+- geolocation
+- jest
 
 ## Setup
 
