@@ -1,10 +1,12 @@
 import WeatherService from "../services/WeatherService";
 import {updateTempo} from './../actions'
 import store from "../store";
+import {LATITUDE, LONGITUDE } from '../../app.json';
 
 export const fetchTempoAction = () => {
     const fetchTempo = null
-    const location = store.getState().locationReduce.location;
+    var location = store.getState().locationReduce.location;
+    if (location == undefined) location = {lat: LATITUDE, lon: LONGITUDE}
 
     WeatherService.Primary(location.lat, location.lon)
         .then(res => res.json())

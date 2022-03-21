@@ -1,7 +1,7 @@
-import {Button, PermissionsAndroid, Platform} from "react-native";
+import {ActivityIndicator, Button, PermissionsAndroid, Platform} from "react-native";
 import React, {Component} from "react";
 import Geolocation from "@react-native-community/geolocation";
-import {updateLocation} from './../actions'
+import {setLoader, updateLocation} from './../actions'
 import {fetchTempoAction} from '../actions/climaTempoAction'
 import {fetchEnderecoAction} from '../actions/enderecoAction'
 import {connect} from "react-redux";
@@ -10,6 +10,7 @@ class BotaoLocalizacao extends Component {
 
     constructor(props) {
         super(props)
+        this.startLocation()
     }
 
     startLocation = () => {
@@ -39,13 +40,19 @@ class BotaoLocalizacao extends Component {
 
     getLocation = () => {
 
+        this.props.dispatch(setLoader(true))
+
         Geolocation.getCurrentPosition(
             position => {
                 this.props.dispatch(updateLocation({lat: position.coords.latitude, lon: position.coords.longitude}))
                 this.props.dispatch(fetchTempoAction())
                 this.props.dispatch(fetchEnderecoAction())
+                this.props.dispatch(setLoader(false))
             },
-            error => Alert.alert('Error', JSON.stringify(error)),
+            error => {
+                Alert.alert('Error', JSON.stringify(error))
+                this.props.dispatch(setLoader(false))
+            },
             {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
         );
 
@@ -53,11 +60,16 @@ class BotaoLocalizacao extends Component {
 
 
     render() {
-        return (<Button title={'Minha localização'} onPress={this.startLocation}/>);
+        return (
+            <>
+                <Button title={'Minha localização'} onPress={this.startLocation}/>
+            </>
+        );
     };
 }
+
 const mapStateToProps = (state) => {
-       return {
+    return {
         location: state.location
     }
 }

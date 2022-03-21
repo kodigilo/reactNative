@@ -1,23 +1,29 @@
-
 export const updateLocation = location => {
-  return {
-    type: 'UPDATE_LOCATION',
-    location
-  }
+    return {
+        type: 'UPDATE_LOCATION',
+        location
+    }
 }
 
 
 export const updateTempo = tempo => {
-  return {
-    type: 'UPDATE_TEMPO',
-    tempo
-  }
+    return {
+        type: 'UPDATE_TEMPO',
+        tempo
+    }
 }
 
 
 export const updateEndereco = endereco => {
-  return {
-    type: 'UPDATE_ENDERECO',
-    endereco
-  }
+    return {
+        type: 'UPDATE_ENDERECO',
+        endereco
+    }
+}
+
+export const setLoader = loading => {
+    return {
+        type: 'LOADER',
+        loading
+    }
 }
