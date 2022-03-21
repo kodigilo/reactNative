@@ -50,8 +50,9 @@ class BotaoLocalizacao extends Component {
                 this.props.dispatch(setLoader(false))
             },
             error => {
-                Alert.alert('Error', JSON.stringify(error))
                 this.props.dispatch(setLoader(false))
+                console.log(error)
+                alert('Error ao obter localização')
             },
             {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
         );
